@@ -21,8 +21,3 @@ class Client:
 
     def __str__(self):
         return f'ID: {self.id_client}\nNombre: {self.name}\nNúmero de documento: {self.document}\nDirección: {self.address}\nNúmero teléfonico: {self.phone_number}\nRepresentante legal? {self.is_company}'
-
-# cliente1 = Client('10301231', 'Miguel Ferrini', '1000101', 'Carrera 42. #12', '3001839', True)
-# print(cliente1)
-# cliente1.update_info(name=1234)
-# print(cliente1)
