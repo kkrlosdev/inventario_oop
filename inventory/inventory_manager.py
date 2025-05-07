@@ -21,20 +21,18 @@ class InventoryManager:
                 file.write('[]')
                 self.inventory_stock = []
 
-    def add_stock(self, product: Product, stock: int, unit_price: float | int, has_discount: bool) -> str:
+    def add_stock(self, product: Product, stock: int, unit_price: float | int) -> str:
         for inv in self.inventory_stock:
             if inv['product_name'] == product.product_name:
                 inv['stock'] += stock
                 inv['unit_price'] = unit_price
-                inv['has_discount'] = has_discount
                 self.save_stock()
                 return f'{Fore.YELLOW}Stock updated for {product.product_name}.'
 
         inventory_data = {
             'product_name': product.product_name,
             'stock': stock,
-            'unit_price': unit_price,
-            'has_discount': has_discount
+            'unit_price': unit_price
             }
         self.inventory_stock.append(inventory_data)
         self.save_stock()
