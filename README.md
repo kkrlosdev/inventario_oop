@@ -24,5 +24,14 @@ cd inventario_oop
 
 ### Install dependencies with Poetry
 ```bash
-poetry install
+poetry install --no-root
 ```
+
+## Dotenv vars
+~~~
+DB_NAME = Database name
+DB_USER = Server user
+DB_PASSWORD = Server user password
+DB_HOST = DB Host
+DB_PORT = PostgreSQL Port: default 5432
+~~~
