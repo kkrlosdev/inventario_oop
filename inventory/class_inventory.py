@@ -1,4 +1,7 @@
-class ClassInventory:
-    def __init__(self, inventory_type: str, name: str):
-        self.inventory_type = inventory_type
-        self.name = name
+from dataclasses import dataclass
+from entities.base_entity import BaseEntity
+
+@dataclass
+class ClassInventory(BaseEntity):
+    inventory_type: str
+    name: str
