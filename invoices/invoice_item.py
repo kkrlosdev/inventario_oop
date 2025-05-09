@@ -1,9 +1,8 @@
 from dataclasses import dataclass
-from inventory.product import Product
 
 @dataclass
 class InvoiceItem:
-    product: Product
+    id_product: int
     units_sold: int
     unit_price: float | int
     discount_percentage: float = 0.0

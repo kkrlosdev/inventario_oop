@@ -6,6 +6,7 @@ class Client(BaseEntity):
     name: str
     document: str
     address: str
+    email: str
     phone_number: str
     is_company: bool = False
 
