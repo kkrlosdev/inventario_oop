@@ -1,5 +1,5 @@
 import psycopg2
-import config
+from db import config
 
 def get_connection():
     try:

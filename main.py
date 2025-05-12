@@ -6,6 +6,7 @@ from inventory.product import Product
 from clients.client import Client
 from invoices.invoice_item import InvoiceItem
 from invoices.invoices import Invoice
+from clients.client_dao import ClientDAO
 import datetime
 
 init(autoreset=True)
@@ -37,7 +38,12 @@ licuadora = Product('Licuadora Oster', 'Oster Inc.', '2025-12-15', cajas, electr
 # print(fact_fn_2255.subtotal)
 # print(fact_fn_2255.date)
 # print(fact_fn_2255)
-producto1 = Product('Pepe', '2025-04-04', 1, 2, 3)
-print(producto1.product_name)
-producto1.update_info(product_name='Carlos')
-print(producto1.product_name)
+# producto1 = Product('Pepe', '2025-04-04', 1, 2, 3)
+# print(producto1.product_name)
+# producto1.update_info(product_name='Carlos')
+# print(producto1.product_name)
+
+if __name__ == '__main__':
+    client_test = Client('Roberto Osorio', 'Carrera 42 #2-100', 'rosorio@gelcointernational.com', '3006492', True)
+    with ClientDAO() as dao:
+        print(dao.delete_client(1))

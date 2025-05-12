@@ -4,7 +4,6 @@ from entities.base_entity import BaseEntity
 @dataclass
 class Client(BaseEntity):
     name: str
-    document: str
     address: str
     email: str
     phone_number: str
