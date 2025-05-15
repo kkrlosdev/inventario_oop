@@ -1,14 +1,14 @@
 import psycopg2
-from db import config
+from config import DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT
 
 def get_connection():
     try:
         conn = psycopg2.connect(
-            dbname = config.DB_NAME,
-            user = config.DB_USER,
-            password = config.DB_PASSWORD,
-            host = config.DB_HOST,
-            port = config.DB_PORT
+            dbname = DB_NAME,
+            user = DB_USER,
+            password = DB_PASSWORD,
+            host = DB_HOST,
+            port = DB_PORT
         )
         print(f'Conexión exitosa a la base de datos:\nNombre: {conn.info.dbname} | Host: {conn.info.host} | Puerto: {conn.info.port}')
         return conn
