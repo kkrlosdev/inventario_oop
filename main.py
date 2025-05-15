@@ -42,8 +42,3 @@ licuadora = Product('Licuadora Oster', 'Oster Inc.', '2025-12-15', cajas, electr
 # print(producto1.product_name)
 # producto1.update_info(product_name='Carlos')
 # print(producto1.product_name)
-
-if __name__ == '__main__':
-    client_test = Client('Roberto Osorio', 'Carrera 42 #2-100', 'rosorio@gelcointernational.com', '3006492', True)
-    with ClientDAO() as dao:
-        print(dao.delete_client(1))
