@@ -1,7 +1,5 @@
 from entities.base_dao import BaseDAO
 from .client import Client
-from utils.fetchall_as_dict import fetchall_as_dict
-from utils.fetchone_as_dict import fetchone_as_dict
 
 class ClientDAO(BaseDAO):
     def add_client(self, client: Client):
@@ -52,22 +50,3 @@ class ClientDAO(BaseDAO):
     def get_all_clients(self):
         query = "SELECT name, address, email, phone_number, is_company FROM client;"
         return self._execute_query(query, None, 'all')
-
-    def _execute_query(self, query, params=None, mode=None):
-        """
-        #### Params:
-        - mode: only accept 3 values: one to fetchone, all to fetchall, None for other operations like insert, update, delete.
-        """
-        cursor = self.connection.cursor()
-        try:
-            cursor.execute(query, params)
-            if mode == "one":
-                return fetchone_as_dict(cursor)
-            elif mode == "all":
-                return fetchall_as_dict(cursor)
-            elif mode is None:
-                self.connection.commit()
-        except:
-            raise
-        finally:
-            cursor.close()

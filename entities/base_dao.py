@@ -1,4 +1,6 @@
 from db.connection import get_connection
+from utils.fetchall_as_dict import fetchall_as_dict
+from utils.fetchone_as_dict import fetchone_as_dict
 
 class BaseDAO:
     def __enter__(self):
@@ -15,3 +17,24 @@ class BaseDAO:
             self.connection.commit()
         self.cursor.close()
         self.connection.close()
+
+    def _execute_query(self, query, params=None, mode=None):
+        """
+        Ejecuta una consulta SQL.
+
+        # Params:
+        - query: la consulta SQL.
+        - params: los parámetros para la consulta.
+        - mode: 'one' para fetchone, 'all' para fetchall, None para operaciones tipo INSERT/UPDATE/DELETE.
+        """
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute(query, params)
+            if mode == "one":
+                return fetchone_as_dict(cursor)
+            elif mode == "all":
+                return fetchall_as_dict(cursor)
+        except:
+            raise
+        finally:
+            cursor.close()
