@@ -51,7 +51,9 @@ def create_products_table():
     id_product SERIAL PRIMARY KEY,
     product_name VARCHAR(500) NOT NULL,
     expiration_date DATE,
-    provider_id INTEGER REFERENCES provider(id)
+    provider_id INTEGER REFERENCES provider(id),
+    storage_unit_id INTEGER REFERENCES units(id_unit),
+    inventory_class_id INTEGER REFERENCES inventory_class(id_inventory)
     );
     """
     execute_table_creation(query, 'products')
