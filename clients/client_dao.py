@@ -42,7 +42,7 @@ class ClientDAO(BaseDAO):
                 """
         params = (client_id,)
         try:
-            data = self._execute_query(query, params)
+            data = self._execute_query(query, params, 'one')
             return data
         except Exception as e:
             raise Exception(f'Ocurrió una excepción tratando de recuperar la información del cliente: {e}')
