@@ -19,7 +19,7 @@ class ProviderDAO(BaseDAO):
         query = """
                 UPDATE provider
                 SET name = %s, contact_name = %s, nit = %s, phone = %s, email = %s
-                WHERE id = $s;
+                WHERE id = %s;
                 """
         params = (provider_data.name, provider_data.contact_name, provider_data.nit, provider_data.phone, provider_data.email, provider_id)
         self._execute_query(query, params)
