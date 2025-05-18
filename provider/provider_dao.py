@@ -34,7 +34,7 @@ class ProviderDAO(BaseDAO):
             raise Exception(f'Ocurrió una excepción al momento de obtener la información del cliente: {e}')
 
     def get_all_providers(self) -> list[dict]:
-        query = "SELECT name, contact_name, nit, phone, email FROM provider"
+        query = "SELECT id, name, contact_name, nit, phone, email FROM provider"
         try:
             data = self._execute_query(query, None, 'all')
             return data

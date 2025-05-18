@@ -5,4 +5,3 @@ from entities.base_entity import BaseEntity
 class Units(BaseEntity):
     code: str
     name: str
-    description: str
